@@ -1,1 +1,3 @@
-testing testing 1 2 3
+*This activity has been created as part of the 42 curriculum by me me and me.*
+
+it doesn't do anything.
