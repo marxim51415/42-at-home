@@ -19,7 +19,7 @@ void	end_trim(char *trimmit, char const *set, size_t i)
 	size_t	j;
 
 	j = 0;
-	while (trimmit && set)
+	while (set[j])
 	{
 		if (trimmit[i] != set[j])
 			j++;
@@ -33,16 +33,17 @@ void	end_trim(char *trimmit, char const *set, size_t i)
 	return ;
 }
 
-size_t	start_trim(char const *s1, char const *set, size_t i)
+size_t	start_trim(char const *st1, char const *set, size_t i)
 {
 	size_t	j;
 
 	j = 0;
-	while (s1 && set)
+	while (set[j])
 	{
-		if (s1[i] != set[j])
+		
+		if (set[j] != st1[i])
 			j++;
-		if (s1[i] == set[j])
+		else if (set[j] == st1[i])
 		{
 			i++;
 			j = 0;
@@ -63,18 +64,21 @@ char	*ft_strtrim(char const *s1, char const *set)
 	i = 0;
 	j = 0;
 	i = start_trim(s1, set, i);
-	while (s1)
+	while (s1[i])
 	{
 		trimmed[j++] = s1[i++];
 	}
-	end_trim(trimmed, set, i);
+	trimmed[j] = 0;
+	end_trim(trimmed, set, j - 1);
 	return (trimmed);
 }
 
 int main()
 {
-	char *trimmit = " this has been a good day tt";
-	char *set = " t";
-//	char *trimmed = 
-	printf("%s\n", ft_strtrim(trimmit, set));
+	char *trimmit = " d dthis has been a good day dd";
+	char *set = " d";
+	char *trimmed = ft_strtrim(trimmit, set);
+	printf("googoogoogoogogoogogoo....\n-%s-\n-%s-\n", trimmit, trimmed);
+	free(trimmed);
+	return (0);
 }
