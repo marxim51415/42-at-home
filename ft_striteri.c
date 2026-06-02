@@ -31,7 +31,7 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 void	ft_thrrupper(unsigned int i, char *arg)
 {
 	char doesntmatter = *arg;
-	if ((i / 3 == 0) && doesntmatter >= 97 && doesntmatter <= 122)
+	if ((i % 3 == 0) && doesntmatter >= 97 && doesntmatter <= 122)
 	{
 //		printf("letter : %c and i : %d\n", doesntmatter, i);
 		*arg -= 32;
